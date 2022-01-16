@@ -1,0 +1,18 @@
+/* This will style the entire body */
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+/* This will add font type for all Header ones */
+h1{
+    font-family: 'Neonderthaw', cursive;
+}
+/* This will style the header section */
+.navbar{
+    color: #fbff00;
+}
+.col-md-3 img{
+    width: 8em;
+}
