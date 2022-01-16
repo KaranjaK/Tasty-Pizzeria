@@ -82,12 +82,83 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-                <button type="button" class="btn btn-warning">Order</button>
+                <button type="button" class="btn btn-warning" data-toggle="modal"
+        data-target="#myModal">Order</button>
+
+        
             </a>
           </li>
       </div>
     </nav>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Form in the pop-up -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title">Make your tasty Pizza</h1>
+            </div>
+            <div class="modal-body">
+              <!-- This is the form that alllows the user to specify their preffered Pizza -->
+              <form action="" id="form" name="form"></form>
+                <label for="size">What is your preferred Pizza Size?</label>
+                 <select name="size" id="size" value="size" required>
+                  <option value="" selected>-- Pick a Pizza Size --</option>
+                  <option value="small">Small @ Kshs. 500</option>
+                  <option value="medium">Medium @ Kshs. 1,000</option>
+                  <option value="large">Large @ Kshs. 1,500</option></select>
+
+                <label for="crust">What is your preffered Crust?</label>
+                <select name="crust" id="crust" value="crust" required>
+                  <option value="" selected>-- Pick Preferred Crust --</option>
+                  <option value="crustless">Crustless @ Kshs. 0</option>
+                  <option value="flat">Flat Bread @ Kshs. 50</option>
+                  <option value="crispy">Crispy @ Kshs. 50</option>
+                  <option value="cracker">Cracker @ Kshs. 50</option>
+                  <option value="stuffed">Stuffed @ Kshs. 60</option>
+                  <option value="glutten-free">Glutten Free @ Kshs. 100</option>
+                  <option value="cheese">Cheese @ Kshs. 50</option>
+                </select>
+
+                <label for="toppings">What toppings do you preffer?</label>
+                <select name="toppings" id="toppings" value="toppings" required>
+                  <option value="" selected>-- Pick Preferred Topping --</option>
+                  <option value="plain">Plain @ Kshs. 0</option>
+                  <option value="pepperoni">Pepperoni @ Kshs. 100</option>
+                  <option value="mushroom">Mush Room @ Kshs. 50</option>
+                  <option value="extra-cheese">Extra Cheese @ Kshs. 50</option>
+                  <option value="sausage">Sausage @ Kshs. 50</option>
+                  <option value="onion">Onion @ Kshs. 60</option>
+                  <option value="black-olives">Black Olives @ Kshs. 100</option>
+                  <option value="green-pepper">Green pepper @ Kshs. 150</option>
+                  <option value="fresh-garlic">Fresh Garlic @ Kshs. 60</option>
+                  <option value="tomato">Tomato @ Kshs. 40</option>
+                  <option value="fresh-basil">Fresh Basil @ Kshs. 150</option>
+                </select>
+                <br />
+                <input
+                  type="submit"
+                  id="submit"
+                  value="Place Order"
+                />
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </header>
+    <section class="container-fluid">
+      
+    </section>
    
   </body>
 </html>
