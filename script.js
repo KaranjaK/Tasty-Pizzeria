@@ -1,5 +1,5 @@
 // Variables definition 
-   let priceSize, priceCrust, priceToppings, PriceTotal
+   let priceSize, priceCrust, priceToppings, orderCost, priceTotal
 
 // Function to find Pizza Price based on size
 function sizePrice() {
@@ -79,6 +79,10 @@ function toppingsPrice() {
     return priceToppings
 }
 // //    Function to calculate the order price
-// function orderPrice(){
-    
-// }
+function orderPrice(){
+    sizePrice()
+    crustPrice()
+    toppingsPrice()
+    orderCost = priceSize + priceCrust + priceToppings
+    alert("Your total order is " + orderCost)
+}
