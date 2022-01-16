@@ -99,7 +99,7 @@
             </div>
             <div class="modal-body">
               <!-- This is the form that alllows the user to specify their preffered Pizza -->
-              <form action="" id="form" name="form"></form>
+              <form action="javascript:orderPrice()" id="form" name="form">
                 <label for="size">What is your preferred Pizza Size?</label>
                  <select name="size" id="size" value="size" required>
                   <option value="" selected>-- Pick a Pizza Size --</option>
@@ -136,6 +136,7 @@
                 </select>
                 <br />
                 <input
+                  class="btn-success"
                   type="submit"
                   id="submit"
                   value="Place Order"
@@ -145,10 +146,10 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-default"
+                class="btn btn-warning"
                 data-dismiss="modal"
               >
-                Close
+                Exit without making order
               </button>
             </div>
           </div>
