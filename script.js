@@ -40,6 +40,44 @@ function crustPrice() {
     }
     return priceCrust
 }
+
+// Function to find Pizza Price based on Toppings
+function toppingsPrice() {
+    if(document.getElementById("toppings").value == "plain"){
+        priceToppings = 0
+    }
+    else if(document.getElementById("toppings").value == "pepperoni"){
+        priceToppings = 100
+    }
+    else if(document.getElementById("toppings").value == "mushroom"){
+        priceToppings = 50
+    }
+    else if(document.getElementById("toppings").value == "extra-cheese"){
+        priceToppings = 50
+    }
+    else if(document.getElementById("toppings").value == "sausage"){
+        priceToppings = 50
+    }
+    else if(document.getElementById("toppings").value == "onion"){
+        priceToppings = 60
+    }
+    else if(document.getElementById("toppings").value == "black-olives"){
+        priceToppings = 100
+    }
+    else if(document.getElementById("toppings").value == "green-pepper"){
+        priceToppings = 150
+    }
+    else if(document.getElementById("toppings").value == "fresh-garlic"){
+        priceToppings = 60
+    }
+    else if(document.getElementById("toppings").value == "tomato"){
+        priceToppings = 60
+    }
+    else {
+        priceToppings = 150
+    }
+    return priceToppings
+}
 // //    Function to calculate the order price
 // function orderPrice(){
     
