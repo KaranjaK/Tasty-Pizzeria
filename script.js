@@ -16,24 +16,30 @@ function sizePrice() {
 }
 
 // Function to find Pizza Price based on crust
-// function crustPrice() {
-//     if(document.getElementById("crust").value == "crustless"){
-//         priceCrust = 0
-//     }
-//     else if(document.getElementById("crust").value == "flat"){
-//         priceCrust = 50
-//     }
-//     else if(document.getElementById("crust").value == "crispy"){
-//         priceCrust = 50
-//     }
-//     else if(document.getElementById("crust").value == "cracker"){
-//         priceCrust = 50
-//     }
-//     else {
-//         priceCrust = 1500
-//     }
-//     return priceCrust
-// }
+function crustPrice() {
+    if(document.getElementById("crust").value == "crustless"){
+        priceCrust = 0
+    }
+    else if(document.getElementById("crust").value == "flat"){
+        priceCrust = 50
+    }
+    else if(document.getElementById("crust").value == "crispy"){
+        priceCrust = 50
+    }
+    else if(document.getElementById("crust").value == "cracker"){
+        priceCrust = 50
+    }
+    else if(document.getElementById("crust").value == "stuffed"){
+        priceCrust = 60
+    }
+    else if(document.getElementById("crust").value == "glutten-free"){
+        priceCrust = 100
+    }
+    else {
+        priceCrust = 50
+    }
+    return priceCrust
+}
 // //    Function to calculate the order price
 // function orderPrice(){
     
