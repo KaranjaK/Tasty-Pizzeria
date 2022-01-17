@@ -90,7 +90,7 @@ function deliveryPrice() {
     priceDelivery = 300;
   } else if (document.getElementById("dprice").value == "utawala") {
     priceDelivery = 200;
-  } else if (document.getElementById("dprice").value == "bellewiew") {
+  } else if (document.getElementById("dprice").value == "belleview") {
     priceDelivery = 200;
   } else if (document.getElementById("dprice").value == "syokimau") {
     priceDelivery = 200;
@@ -164,20 +164,22 @@ function totalOrderPrice() {
     price: priceTotal,
   };
   formData.push(orderForm);
-  console.log(formData);
-  alert(
-    "Your order has been dispatched and will be delivered at your location soonest"
-  );
-  history.go();
-  document.getElementById("form").reset();
-}
-
-// jQuery to reset form when order is canceled
-$(document).ready(function () {
-  $(".modal-footer").click(function () {
-    $("#form").trigger("reset");
-    $("#form1").trigger("reset", function () {
-      window.location.href("index.html");
+  let delConfirm = confirm("Do you wish to view your order summary");
+  if (delConfirm == true) {
+    $(document).ready(function () {
+      $("#form1-h").hide(function () {
+        $("#form2-h").show(function(){
+            alert("Yes")
+        });
+      });
     });
-  });
-});
+  }
+  else {
+      document.getElementById("form").reset();
+      history.go();
+      alert("Your order is ready and you could pick from our location");
+    }
+
+    history.go();
+    // document.getElementById("form").reset();
+}
