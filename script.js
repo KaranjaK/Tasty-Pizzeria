@@ -112,7 +112,7 @@ function orderPrice() {
     size: document.getElementById("size").value,
     crust: document.getElementById("crust").value,
     toppings: document.getElementById("toppings").value,
-    price: orderCost,
+    // price: orderCost,
   };
   userData.push(userForm);
   console.log(userData)
@@ -144,7 +144,7 @@ function orderPrice() {
       });
     } else {
       document.getElementById("form").reset();
-    //   history.go();git
+      history.go();
       alert("Your order is ready for pick up from our location");
     }
   }
@@ -156,7 +156,7 @@ function totalOrderPrice() {
   deliveryPrice();
 
   priceTotal = cumulativePrice + priceDelivery; //Calculate order cost plus delivery
-  alert("The total charge for your order " + userData + " and its delivery is " + priceTotal);
+  alert("The total charge for your order " + Object.values(userForm) + " and its delivery cost is " + priceTotal);
   orderForm = {
     size: document.getElementById("size").value,
     crust: document.getElementById("crust").value,
