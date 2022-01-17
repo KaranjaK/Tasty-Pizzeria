@@ -115,7 +115,7 @@ function orderPrice() {
     price: orderCost,
   };
   userData.push(userForm);
-  console.log(userData);
+  console.log(userData)
   alert(
     "You have picked a " +
       userForm.size +
@@ -132,7 +132,6 @@ function orderPrice() {
   let priceConfirm = confirm("Do you want to make another order?");
   document.getElementById("form").reset();
   if (priceConfirm == true) {
-    console.log(userData);
     document.getElementById("form").reset();
   } else {
     orderConfirm = confirm("Do you want your Order Delivered?");
@@ -145,10 +144,11 @@ function orderPrice() {
       });
     } else {
       document.getElementById("form").reset();
-      history.go();
-      alert("Your order is ready and you could pick from our location");
+    //   history.go();git
+      alert("Your order is ready for pick up from our location");
     }
   }
+
 }
 
 // Function to calculate the total price
@@ -156,7 +156,7 @@ function totalOrderPrice() {
   deliveryPrice();
 
   priceTotal = cumulativePrice + priceDelivery; //Calculate order cost plus delivery
-  alert("The total charge for your Pizza and its delivery is " + priceTotal);
+  alert("The total charge for your order " + userData + " and its delivery is " + priceTotal);
   orderForm = {
     size: document.getElementById("size").value,
     crust: document.getElementById("crust").value,
@@ -164,22 +164,8 @@ function totalOrderPrice() {
     price: priceTotal,
   };
   formData.push(orderForm);
-  let delConfirm = confirm("Do you wish to view your order summary");
-  if (delConfirm == true) {
-    $(document).ready(function () {
-      $("#form1-h").hide(function () {
-        $("#form2-h").show(function(){
-            alert("Yes")
-        });
-      });
-    });
-  }
-  else {
-      document.getElementById("form").reset();
-      history.go();
-      alert("Your order is ready and you could pick from our location");
-    }
-
+  
+    document.getElementById("form").reset();
     history.go();
-    // document.getElementById("form").reset();
+    alert("Your order will be delivered at your location");
 }
