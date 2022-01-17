@@ -83,13 +83,12 @@
           <li class="nav-item">
             <a class="nav-link" href="#">
                 <button type="button" class="btn btn-warning" data-toggle="modal"
-        data-target="#myModal">Order</button>
-
-        
+        data-target="#myModal">Order</button>        
             </a>
           </li>
       </div>
     </nav>
+
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
           <!-- Form in the pop-up -->
@@ -101,14 +100,14 @@
               <!-- This is the form that alllows the user to specify their preffered Pizza -->
               <form action="javascript:orderPrice()" id="form" name="form">
                 <label for="size">What is your preferred Pizza Size?</label>
-                 <select name="size" id="size" value="size" required>
+                 <select class="form-control" name="size" id="size" value="size" required>
                   <option value="" selected>-- Pick a Pizza Size --</option>
                   <option value="small">Small @ Kshs. 500</option>
                   <option value="medium">Medium @ Kshs. 1,000</option>
                   <option value="large">Large @ Kshs. 1,500</option></select>
 
                 <label for="crust">What is your preffered Crust?</label>
-                <select name="crust" id="crust" value="crust" required>
+                <select class="form-control" name="crust" id="crust" value="crust" required>
                   <option value="" selected>-- Pick Preferred Crust --</option>
                   <option value="crustless">Crustless @ Kshs. 0</option>
                   <option value="flat">Flat Bread @ Kshs. 50</option>
@@ -120,7 +119,7 @@
                 </select>
 
                 <label for="toppings">What toppings do you preffer?</label>
-                <select name="toppings" id="toppings" value="toppings" required>
+                <select class="form-control" name="toppings" id="toppings" value="toppings" required>
                   <option value="" selected>-- Pick Preferred Topping --</option>
                   <option value="plain">Plain @ Kshs. 0</option>
                   <option value="pepperoni">Pepperoni @ Kshs. 100</option>
@@ -140,6 +139,7 @@
                   type="submit"
                   id="submit"
                   value="Place Order"
+                  onsubmit= reset()
                 />
               </form>
             </div>
@@ -149,13 +149,12 @@
                 class="btn btn-warning"
                 data-dismiss="modal"
               >
-                Exit without making order
+                Cancel Order
               </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </header>
     <section class="container-fluid">
       
