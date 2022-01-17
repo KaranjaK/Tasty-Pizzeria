@@ -6,6 +6,7 @@ let priceSize,
   orderCost,
   orderNumber,
   orderConfirm,
+  cumulativePrice,
   priceTotal;
 
 // Construct definition
@@ -106,10 +107,25 @@ function orderPrice() {
   sizePrice();
   crustPrice();
   toppingsPrice();
-  deliveryPrice();
   orderCost = priceSize + priceCrust + priceToppings; //Calculate order cost without delivery
-  priceTotal = priceSize + priceCrust + priceToppings + priceDelivery; //Calculate order cost plus delivery
-  alert("Your total charge for your Pizza is " + orderCost);
+  userForm = {
+    size: document.getElementById("size").value,
+    crust: document.getElementById("crust").value,
+    toppings: document.getElementById("toppings").value,
+    price: orderCost,
+  };
+  userData.push(userForm);
+  let x = 0;
+  alert(
+    "You have picked a " +
+      userForm.size +
+      " " +
+      userForm.crust +
+      " " +
+      userForm.toppings +
+      " pizza. The total charge for your Pizza is " +
+      orderCost
+  );
   let priceConfirm = confirm("Do you want to make another order?");
   if (priceConfirm == true) {
     userForm = {
@@ -119,16 +135,18 @@ function orderPrice() {
       price: orderCost,
     };
     userData.push(userForm);
-    console.log(userData);
+    alert(
+      "You have picked a " +
+        userForm.size +
+        " " +
+        userForm.crust +
+        " " +
+        userForm.toppings +
+        " pizza. The total charge for your Pizza is " +
+        orderCost
+    );
     document.getElementById("form").reset();
   } else {
-    userForm = {
-      size: document.getElementById("size").value,
-      crust: document.getElementById("crust").value,
-      toppings: document.getElementById("toppings").value,
-      price: orderCost,
-    };
-    userData.push(userForm);
     console.log(userData);
     orderConfirm = confirm("Do you want your Order Delivered?");
     if (orderConfirm == true) {
@@ -138,20 +156,35 @@ function orderPrice() {
           $("#form1-h").show();
         });
       });
-
-      orderForm = {
-        size: document.getElementById("size").value,
-        crust: document.getElementById("crust").value,
-        toppings: document.getElementById("toppings").value,
-        price: priceTotal,
-      };
-      formData.push(orderForm);
-      console.log(formData);
     } else {
       document.getElementById("form").reset();
       alert("Your order is and you could pick from our location");
     }
   }
+}
+
+// Function to calculate the total price
+function totalOrderPrice() {
+  sizePrice();
+  crustPrice();
+  toppingsPrice();
+  deliveryPrice();
+
+  priceTotal = priceSize + priceCrust + priceToppings + priceDelivery; //Calculate order cost plus delivery
+  alert("Your total charge for your Pizza is " + priceTotal);
+  orderForm = {
+    size: document.getElementById("size").value,
+    crust: document.getElementById("crust").value,
+    toppings: document.getElementById("toppings").value,
+    price: priceTotal,
+  };
+  formData.push(orderForm);
+  console.log(formData);
+  alert(
+    "Your order has been dispatched and will be delivered at your location soonest"
+  );
+  history.go();
+  document.getElementById("form").reset();
 }
 
 // jQuery to reset form when order is canceled
