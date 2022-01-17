@@ -1,8 +1,10 @@
 // Variables definition
-let priceSize, priceCrust, priceToppings, orderCost, priceTotal;
+let priceSize, priceCrust, priceToppings, orderCost, orderNumber, priceTotal;
 
 // Construct definition
 let userForm, userData;
+userForm = document.getElementById("form");
+userData = new FormData(userForm);
 // Function to find Pizza Price based on size
 function sizePrice() {
   if (document.getElementById("size").value == "small") {
@@ -64,7 +66,9 @@ function toppingsPrice() {
 }
 
 // Fuction to store the details of the order
-function order() {}
+function order() {
+  orderNumber = 0;
+}
 //  Function to calculate the order price
 function orderPrice() {
   sizePrice();
@@ -72,11 +76,12 @@ function orderPrice() {
   toppingsPrice();
   orderCost = priceSize + priceCrust + priceToppings;
   alert("Your total charge for your Pizza is " + orderCost);
-  let priceConfirm = confirm("Do you with to make another order?");
+  let priceConfirm = confirm("Do you want to make another order?");
   if (priceConfirm == true) {
     userForm = document.getElementById("form");
     userData = new FormData(userForm);
     console.log(userData.get("size"));
+    console.log(userData.get("toppings"));
     document.getElementById("form").reset();
   } else {
     let orderConfirm = confirm("Do you want your Order Delivered?");
@@ -86,6 +91,14 @@ function orderPrice() {
       alert("Your order is and you could pick from our location");
     }
   }
+  console.log(userData.get("size"));
+  console.log(userData.get("toppings"));
 }
 // Fuction to add another Pizza order
 function extraOrder() {}
+
+$(document).ready(function () {
+  $(".modal-footer").click(function () {
+    $("form").trigger("reset");
+  });
+});
