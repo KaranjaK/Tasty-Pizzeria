@@ -2,15 +2,17 @@
 let priceSize,
   priceCrust,
   priceToppings,
+  priceDelivery,
   orderCost,
   orderNumber,
   orderConfirm,
-  deliveryPrice,
   priceTotal;
 
 // Construct definition
 let userForm,
-  userData = [];
+  orderForm,
+  userData = [],
+  formData = [];
 // Function to find Pizza Price based on size
 function sizePrice() {
   if (document.getElementById("size").value == "small") {
@@ -73,7 +75,30 @@ function toppingsPrice() {
 
 // Fuction to find Pizza Delivery Price
 function deliveryPrice() {
-  
+  if (document.getElementById("dprice").value == "cbd") {
+    priceDelivery = 0;
+  } else if (document.getElementById("dprice").value == "hurlingham") {
+    priceDelivery = 100;
+  } else if (document.getElementById("dprice").value == "westland") {
+    priceDelivery = 200;
+  } else if (document.getElementById("dprice").value == "south-c") {
+    priceDelivery = 200;
+  } else if (document.getElementById("dprice").value == "south-b") {
+    priceDelivery = 100;
+  } else if ((document.getElementById("dprice").value = "kitengela")) {
+    priceDelivery = 300;
+  } else if (document.getElementById("dprice").value == "utawala") {
+    priceDelivery = 200;
+  } else if (document.getElementById("dprice").value == "bellewiew") {
+    priceDelivery = 200;
+  } else if (document.getElementById("dprice").value == "syokimau") {
+    priceDelivery = 200;
+  } else if (document.getElementById("dprice").value == "donhom") {
+    priceDelivery = 200;
+  } else {
+    priceDelivery = 500;
+  }
+  return priceDelivery;
 }
 
 //  Function to calculate the order price
@@ -81,7 +106,9 @@ function orderPrice() {
   sizePrice();
   crustPrice();
   toppingsPrice();
-  orderCost = priceSize + priceCrust + priceToppings;
+  deliveryPrice();
+  orderCost = priceSize + priceCrust + priceToppings; //Calculate order cost without delivery
+  priceTotal = priceSize + priceCrust + priceToppings + priceDelivery; //Calculate order cost plus delivery
   alert("Your total charge for your Pizza is " + orderCost);
   let priceConfirm = confirm("Do you want to make another order?");
   if (priceConfirm == true) {
@@ -107,10 +134,19 @@ function orderPrice() {
     if (orderConfirm == true) {
       // jQuery to display Delivery option
       $(document).ready(function () {
-        $("#form").hide(function () {
-          $("#form1").show();
+        $("#form-s").hide(function () {
+          $("#form1-h").show();
         });
       });
+
+      orderForm = {
+        size: document.getElementById("size").value,
+        crust: document.getElementById("crust").value,
+        toppings: document.getElementById("toppings").value,
+        price: priceTotal,
+      };
+      formData.push(orderForm);
+      console.log(formData);
     } else {
       document.getElementById("form").reset();
       alert("Your order is and you could pick from our location");
