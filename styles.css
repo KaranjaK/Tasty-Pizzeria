@@ -16,3 +16,7 @@ h1{
 .col-md-3 img{
     width: 8em;
 }
+/* This will style the forms */
+#form1{
+    display: none;
+}
