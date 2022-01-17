@@ -2,9 +2,8 @@
 let priceSize, priceCrust, priceToppings, orderCost, orderNumber, priceTotal;
 
 // Construct definition
-let userForm, userData;
-userForm = document.getElementById("form");
-userData = new FormData(userForm);
+let userForm,
+  userData = [];
 // Function to find Pizza Price based on size
 function sizePrice() {
   if (document.getElementById("size").value == "small") {
@@ -78,12 +77,24 @@ function orderPrice() {
   alert("Your total charge for your Pizza is " + orderCost);
   let priceConfirm = confirm("Do you want to make another order?");
   if (priceConfirm == true) {
-    userForm = document.getElementById("form");
-    userData = new FormData(userForm);
-    console.log(userData.get("size"));
-    console.log(userData.get("toppings"));
+    userForm = {
+      size: document.getElementById("size").value,
+      crust: document.getElementById("crust").value,
+      toppings: document.getElementById("toppings").value,
+      price: orderCost
+    };
+    userData.push(userForm);
+    console.log(userData);
     document.getElementById("form").reset();
   } else {
+    userForm = {
+      size: document.getElementById("size").value,
+      crust: document.getElementById("crust").value,
+      toppings: document.getElementById("toppings").value,
+      price: orderCost
+    };
+    userData.push(userForm);
+    console.log(userData);
     let orderConfirm = confirm("Do you want your Order Delivered?");
     if (orderConfirm == true) {
     } else {
@@ -91,12 +102,11 @@ function orderPrice() {
       alert("Your order is and you could pick from our location");
     }
   }
-  console.log(userData.get("size"));
-  console.log(userData.get("toppings"));
 }
 // Fuction to add another Pizza order
 function extraOrder() {}
 
+// Jquery to reset form when order is canceled
 $(document).ready(function () {
   $(".modal-footer").click(function () {
     $("form").trigger("reset");
