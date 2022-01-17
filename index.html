@@ -98,7 +98,8 @@
             </div>
             <div class="modal-body">
               <!-- This is the form that alllows the user to specify their preffered Pizza -->
-              <form action="javascript:orderPrice()" id="form" name="form">
+              <div id="form">
+                <form action="javascript:orderPrice()"  name="form">
                 <label for="size">What is your preferred Pizza Size?</label>
                  <select class="form-control" name="size" id="size" value="size" required>
                   <option value="" selected>-- Pick a Pizza Size --</option>
@@ -138,20 +139,53 @@
                   class="btn-success"
                   type="submit"
                   id="submit"
-                  value="Place Order"
+                  value="Add to Order"
                   onsubmit= reset()
                 />
               </form>
-            </div>
-            <div class="modal-footer">
+              <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-warning"
+                class="btn btn-danger"
                 data-dismiss="modal"
               >
                 Cancel Order
               </button>
             </div>
+              </div>
+            <div id="form1">
+              <form  name="form">
+                <label for="size">What is your preferred Pizza Size?</label>
+                 <select class="form-control" name="dprice" id="dprice" value="dprice" required>
+                  <option value="" selected>-- Pick your Destination --</option>
+                  <option value="cbd">Within Nairobi CBD @ Kshs. 0</option>
+                  <option value="hurlingham">Hurlingham @ Kshs. 100</option>
+                  <option value="westland">Westland @Kshs. 200</option>
+                  <option value="south-c">South C @ Kshs. 200</option>
+                  <option value="south-b">South B @ Kshs. 100</option>
+                  <option value="ngong-road">Ngong Road @ Kshs. 200</option></select>
+                  <br>
+                  
+              </form>
+              <div class="modal-footer">
+                <button
+                type="button"
+                class="btn btn-success"
+                data-dismiss="modal"
+              >
+                Place Order
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-dismiss="modal"
+              >
+                Cancel Order
+              </button>
+            </div>
+            </div>
+            </div>
+            
           </div>
         </div>
       </div>
