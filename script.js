@@ -1,5 +1,12 @@
 // Variables definition
-let priceSize, priceCrust, priceToppings, orderCost, orderNumber, priceTotal;
+let priceSize,
+  priceCrust,
+  priceToppings,
+  orderCost,
+  orderNumber,
+  orderConfirm,
+  deliveryPrice,
+  priceTotal;
 
 // Construct definition
 let userForm,
@@ -64,10 +71,11 @@ function toppingsPrice() {
   return priceToppings;
 }
 
-// Fuction to store the details of the order
-function order() {
-  orderNumber = 0;
+// Fuction to find Pizza Delivery Price
+function deliveryPrice() {
+  
 }
+
 //  Function to calculate the order price
 function orderPrice() {
   sizePrice();
@@ -81,7 +89,7 @@ function orderPrice() {
       size: document.getElementById("size").value,
       crust: document.getElementById("crust").value,
       toppings: document.getElementById("toppings").value,
-      price: orderCost
+      price: orderCost,
     };
     userData.push(userForm);
     console.log(userData);
@@ -91,24 +99,31 @@ function orderPrice() {
       size: document.getElementById("size").value,
       crust: document.getElementById("crust").value,
       toppings: document.getElementById("toppings").value,
-      price: orderCost
+      price: orderCost,
     };
     userData.push(userForm);
     console.log(userData);
-    let orderConfirm = confirm("Do you want your Order Delivered?");
+    orderConfirm = confirm("Do you want your Order Delivered?");
     if (orderConfirm == true) {
+      // jQuery to display Delivery option
+      $(document).ready(function () {
+        $("#form").hide(function () {
+          $("#form1").show();
+        });
+      });
     } else {
       document.getElementById("form").reset();
       alert("Your order is and you could pick from our location");
     }
   }
 }
-// Fuction to add another Pizza order
-function extraOrder() {}
 
-// Jquery to reset form when order is canceled
+// jQuery to reset form when order is canceled
 $(document).ready(function () {
   $(".modal-footer").click(function () {
-    $("form").trigger("reset");
+    $("#form").trigger("reset");
+    $("#form1").trigger("reset", function () {
+      window.location.href("index.html");
+    });
   });
 });
