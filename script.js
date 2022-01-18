@@ -109,12 +109,9 @@ function orderPrice() {
   userForm = {
     size: document.getElementById("size").value,
     crust: document.getElementById("crust").value,
-    toppings: document.getElementById("toppings").value,
-    // price: orderCost,
+    toppings: document.getElementById("toppings").value
   };
   userData = Object.values(userForm);
-  console.log(userData);
-  console.log(userForm);
   alert(
     "You have picked a " +
       userForm.size +
@@ -143,7 +140,7 @@ function orderPrice() {
       });
     } else {
       document.getElementById("form").reset();
-      // history.go();
+      history.go();
       alert("Your order is ready for pick up from our location");
     }
   }
@@ -168,6 +165,6 @@ function totalOrderPrice() {
   );
 
   document.getElementById("form").reset();
-  // history.go();
+  history.go();
   alert("Your order will be delivered at your location");
 }
