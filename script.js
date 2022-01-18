@@ -11,9 +11,7 @@ let priceSize,
 
 // Construct declaration
 let userForm,
-  orderForm,
-  userData = [],
-  formData = [];
+  userData = [];
 // Function to find Pizza Price based on size
 function sizePrice() {
   if (document.getElementById("size").value == "small") {
@@ -114,8 +112,9 @@ function orderPrice() {
     toppings: document.getElementById("toppings").value,
     // price: orderCost,
   };
-  userData.push(userForm);
-  console.log(userData)
+  userData = Object.values(userForm);
+  console.log(userData);
+  console.log(userForm);
   alert(
     "You have picked a " +
       userForm.size +
@@ -144,11 +143,10 @@ function orderPrice() {
       });
     } else {
       document.getElementById("form").reset();
-      history.go();
+      // history.go();
       alert("Your order is ready for pick up from our location");
     }
   }
-
 }
 
 // Function to calculate the total price
@@ -156,16 +154,20 @@ function totalOrderPrice() {
   deliveryPrice();
 
   priceTotal = cumulativePrice + priceDelivery; //Calculate order cost plus delivery
-  alert("The total charge for your order " + Object.values(userForm) + " and its delivery cost is " + priceTotal);
-  orderForm = {
-    size: document.getElementById("size").value,
-    crust: document.getElementById("crust").value,
-    toppings: document.getElementById("toppings").value,
-    price: priceTotal,
-  };
-  formData.push(orderForm);
-  
-    document.getElementById("form").reset();
-    history.go();
-    alert("Your order will be delivered at your location");
+  let finalOrder = " ";
+  userData.forEach(orderDetails);
+  function orderDetails(value, index, array){
+    finalOrder += value + " "
+    console.log(finalOrder)
+  }
+  alert(
+    "The total charge for your order Pizza(s) " +
+      finalOrder +
+      " and its delivery cost is " +
+      priceTotal
+  );
+
+  document.getElementById("form").reset();
+  // history.go();
+  alert("Your order will be delivered at your location");
 }
